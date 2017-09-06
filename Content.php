@@ -3,10 +3,11 @@
 // echo "I am out there ... I live";
 
 include('StudentDataFactory.php');
+include('Helper.php');
 /**
  * A class to render a view with the students data.
  *
- * This is only a practice for php. Templates would be a better solution.
+ * This is only for practicing php. Templates would be a better solution.
  */
 
 class Content {
@@ -17,37 +18,25 @@ class Content {
         // Sort the result.
         ksort($students);
 
-        echo '<h1 class="text-center"> Silly Student App</h1>';
+        echo '<h1 class="text-center"> Silly Students App</h1>', PHP_EOL;
 
         // Display the result.
         echo '<div class="row justify-content-md-center">';
         foreach($students as $student) {
-            echo '<div class="col-sm-8 col-xs-10 col-md-4 mx-auto align-items-center">';
-            echo '<div class="alert alert-success name-card">';
+            echo '<div class="col-sm-8 col-xs-10 col-md-4 mx-auto align-items-center">', PHP_EOL;
+            echo '<div class="alert alert-success name-card">', PHP_EOL;
             // Get first email address and retrieve the avatar image with that email;
             $email = array_values($student->emails)[0];
-            $gravatar = $this->get_gravatar($email, null, 'wavatar');
+            $gravatar = Helper::get_gravatar($email, null, 'wavatar');
             
-            echo '<img src="'. $gravatar .'" alt="Avatar icon"/>';
+            echo '<img src="'. $gravatar .'" alt="Avatar icon"/>', PHP_EOL;
             echo $student->toString();
-            echo '</div>';
-            echo '</div>';
+            echo '</div>', PHP_EOL;
+            echo '</div>', PHP_EOL;
         }
 
         echo '</div>';
     }
 
-    function get_gravatar( $email, $s = 80, $d = 'mm', $r = 'g', $img = false, $atts = array() ) {
-        $url = 'https://www.gravatar.com/avatar/';
-        $url .= md5( strtolower( trim( $email ) ) );
-        $url .= "?s=$s&d=$d&r=$r";
-        if ( $img ) {
-            $url = '<img src="' . $url . '"';
-            foreach ( $atts as $key => $val )
-                $url .= ' ' . $key . '="' . $val . '"';
-            $url .= ' />';
-        }
-        return $url;
-    }
 }
 ?>
