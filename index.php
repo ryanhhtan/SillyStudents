@@ -27,7 +27,7 @@ and open the template in the editor.
 		$first->add_grade(65);
 		$first->add_grade(75);
 		$first->add_grade(55);
-		$students[] = $first;	
+		$students['j123'] = $first;	
 
 		// Add seconde student into the students array.
 		$second = new Student();
@@ -39,7 +39,9 @@ and open the template in the editor.
 		$second->add_grade(95);
 		$second->add_grade(80);
 		$second->add_grade(50);
-		$students[] = $second;
+		$students['a456'] = $second;
+
+		ksort($students);
 
 		foreach($students as $student) {
 			echo $student->toString(); 
