@@ -7,54 +7,22 @@ and open the template in the editor.
 <html>
     <head>
         <meta charset="UTF-8">
-        <title></title>
+        <title>Silly Students</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+        <link rel="stylesheet" href="/css/style.css">
     </head>
+
     <body>
-        <?php
-        // put your code here
-        // echo "I am out there ... I live";
-        
-        include('Student.php');
+        <div class="container">
+<?php
+include('Content.php');
+$content = new Content();
+$content->render();
+?>
 
-        $students = array();
-
-        // Add first student into the students array.
-        $first = new Student();
-        $first->surname = "Doe";
-        $first->first_name = "John";
-        $first->add_email('home','john@doe.com');
-        $first->add_email('work','jdoe@mcdonalds.com');
-        $first->add_grade(65);
-        $first->add_grade(75);
-        $first->add_grade(55);
-        $students['j123'] = $first; 
-
-        // Add seconde student into the students array.
-        $second = new Student();
-        $second->surname = "Einstein";
-        $second->first_name = "Albert";
-        $second->add_email('home','albert@braniacs.com');
-        $second->add_email('work1','a_einstein@bcit.ca');
-        $second->add_email('work2','albert@physics.mit.edu');
-        $second->add_grade(95);
-        $second->add_grade(80);
-        $second->add_grade(50);
-        $students['a456'] = $second;
-
-
-        // Add my info into the students array.
-        $me = new Student();
-        $me->surname = "Tan";
-        $me->first_name = "Hai Hua";
-        $me->add_email('school', 'htan45@my.bcit.ca');
-        $me->add_grade(90);
-        $students['b721'] = $me;
-
-        ksort($students);
-
-        foreach($students as $student) {
-            echo $student->toString(); 
-        }
-        ?>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
     </body>
 </html>
