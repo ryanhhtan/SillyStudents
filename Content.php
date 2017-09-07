@@ -11,6 +11,9 @@ include('Helper.php');
  */
 
 class Content {
+    /**
+     * Render the content of the page.
+     */
     public function render(){
         // Use the data factory class to genenrate students data.
         $students = StudentDataFactory::getStudents();
