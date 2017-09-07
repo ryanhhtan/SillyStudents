@@ -53,6 +53,20 @@ class StudentDataFactory {
         $me->add_grade(90);
         $students['b721'] = $me;
 
+
+        // Add random generated students to the array
+        $num = mt_rand(1, 10);
+        for ($i = 0; $i < $num; ++$i) {
+            $student = new Student();
+            $student->surname = Helper::rand_name(10);
+            $student->first_name = Helper::rand_name(10);
+            $student->add_email('school', $student->first_name . '@.my.bcit.ca');
+            $student->add_grade(mt_rand(0,100));
+            $student->add_grade(mt_rand(0,100));
+            $student->add_grade(mt_rand(0,100));
+            $students['k' . mt_rand(100,999)] = $student;
+        }
+
         return $students;
     }
 }

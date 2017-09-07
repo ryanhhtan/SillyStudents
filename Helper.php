@@ -12,6 +12,17 @@ class Helper {
         }
         return $url;
     }
+
+    function rand_str($length = 10) {
+        return substr(str_shuffle(str_repeat($x='0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', ceil($length/strlen($x)) )),1,$length);
+    }
+
+    function rand_name($length = 10) {
+        $capital_char='ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+
+        return substr($capital_char, mt_rand(0,25), 1)
+               . substr(str_shuffle(str_repeat($x='bcdefghijklmnopqrstuvwxyz', ceil($length/strlen($x)) )),1,$length - 1);
+    }
 }
 
 ?>

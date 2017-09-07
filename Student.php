@@ -37,7 +37,7 @@ class Student {
         foreach($this->grades as $score) {
             $total += $score;
         }
-        return $total / count($this->grades);
+        return round(($total / count($this->grades)));
     }
 
     function toString() {

@@ -14,6 +14,7 @@ class Content {
     public function render(){
         // Use the data factory class to genenrate students data.
         $students = StudentDataFactory::getStudents();
+        $alert_type=["primary", "secondary", "success", "warning", "danger","info"];
 
         // Sort the result.
         ksort($students);
@@ -21,10 +22,11 @@ class Content {
         echo '<h1 class="text-center"> Silly Students App</h1>', PHP_EOL;
 
         // Display the result.
-        echo '<div class="row justify-content-md-center">';
+        echo '<div class="row">', PHP_EOL;
+        $i = 0;
         foreach($students as $student) {
-            echo '<div class="col-sm-8 col-xs-10 col-md-4 mx-auto align-items-center">', PHP_EOL;
-            echo '<div class="alert alert-success name-card">', PHP_EOL;
+            echo '<div class="col-xs-10 col-md-4 justify-content-center">', PHP_EOL;
+            echo '<div class="alert name-card alert-'.$alert_type[$i++ % 5]. '">', PHP_EOL;
             // Get first email address and retrieve the avatar image with that email;
             $email = array_values($student->emails)[0];
             $gravatar = Helper::get_gravatar($email, null, 'wavatar');
